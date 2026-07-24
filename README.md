@@ -4,6 +4,12 @@ Brand marketing site for **Kingswell Homes & Hospitality** — premium short ter
 
 Primary action: **book a stay** (short term or serviced accommodation).
 
+## Live site
+
+**https://tinashe-x.github.io/Kingswell-Homes/**
+
+Published via GitHub Pages from the `main` branch (`/` root).
+
 ## Open locally
 
 Open `index.html` in a browser, or from this folder:
@@ -11,6 +17,7 @@ Open `index.html` in a browser, or from this folder:
 ```bash
 open index.html
 ```
+
 
 ## Stack
 
