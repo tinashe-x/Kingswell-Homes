@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kingswell Homes &amp; Hospitality | Comfort. Quality. Memorable Stays.</title>
+  <meta name="description"
+    content="Premium short term rentals and serviced accommodations designed for your comfort and convenience.">
+  <meta property="og:title" content="Kingswell Homes & Hospitality">
+  <meta property="og:description"
+    content="Comfort. Quality. Memorable Stays. Premium short term rentals and serviced accommodations.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#1A1A1A',
+            royal: {
+              DEFAULT: '#7B1FA2',
+              deep: '#5E1780',
+              soft: '#9C4BC4',
+              mist: '#F3E8F8',
+              wash: '#FAF5FC'
+            },
+            slate: {
+              soft: '#6B6570',
+              mist: '#E8E4EC',
+              stone: '#F5F2F7'
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Montserrat', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #1A1A1A;
+      --royal: #7B1FA2;
+      --mist: #E8E4EC;
+      --wash: #FAF5FC;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse 120% 80% at 10% -20%, rgba(123, 31, 162, 0.07), transparent 50%),
+        radial-gradient(ellipse 90% 60% at 100% 0%, rgba(123, 31, 162, 0.05), transparent 45%),
+        var(--wash);
+    }
+
+    .hero {
+      min-height: 100svh;
+      background: #1A1A1A;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: heroSettle 1.4s ease-out both;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(26, 26, 26, 0.82) 0%, rgba(26, 26, 26, 0.55) 50%, rgba(26, 26, 26, 0.72) 100%);
+    }
+
+    @keyframes heroSettle {
+      from {
+        opacity: 0;
+        transform: scale(1.04);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .brand-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      width: min(100%, 16rem);
+    }
+
+    .brand-divider::before,
+    .brand-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.85;
+    }
+
+    .brand-divider span {
+      width: 0.4rem;
+      height: 0.4rem;
+      transform: rotate(45deg);
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .book-tab {
+      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .book-tab[aria-selected="true"] {
+      background: white;
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(26, 26, 26, 0.08);
+    }
+
+    .cta-primary {
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      color: var(--royal);
+    }
+
+    .gallery-item img {
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-bg,
+      .reveal,
+      .gallery-item img,
+      .cta-primary {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-ink antialiased">
+  <!-- Navigation -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-royal-wash/90 backdrop-blur-md border-b border-slate-mist/80">
+    <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 text-ink">
+        <span class="text-royal w-9 h-9 shrink-0" aria-hidden="true">
+          <img src="assets/logo-crown.svg" alt="" class="w-full h-full">
+        </span>
+        <span class="leading-tight">
+          <span class="font-display text-lg md:text-xl font-semibold tracking-[0.12em] uppercase block">Kingswell</span>
+          <span class="text-[10px] md:text-xs font-medium tracking-[0.22em] uppercase text-royal block">Homes &amp; Hospitality</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-soft">
+        <a href="#about" class="hover:text-royal transition-colors">About</a>
+        <a href="#services" class="hover:text-royal transition-colors">Services</a>
+        <a href="#stays" class="hover:text-royal transition-colors">Stays</a>
+        <a href="#gallery" class="hover:text-royal transition-colors">Gallery</a>
+        <a href="#book"
+          class="bg-royal text-white px-4 py-2 rounded-md hover:bg-royal-deep transition-colors">Book</a>
+      </div>
+      <button id="menuBtn" type="button" class="md:hidden p-2 text-ink" aria-label="Open menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-mist bg-royal-wash px-5 py-4 space-y-3">
+      <a href="#about" class="block text-slate-soft font-medium">About</a>
+      <a href="#services" class="block text-slate-soft font-medium">Services</a>
+      <a href="#stays" class="block text-slate-soft font-medium">Stays</a>
+      <a href="#gallery" class="block text-slate-soft font-medium">Gallery</a>
+      <a href="#book" class="block font-medium text-royal">Book</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero relative flex items-end md:items-center overflow-hidden">
+    <img
+      class="hero-bg"
+      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=80"
+      alt="Premium living room interior"
+      fetchpriority="high">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="relative z-10 w-full max-w-6xl mx-auto px-5 pt-28 pb-16 md:py-32">
+      <div class="max-w-xl">
+        <div class="text-royal w-14 h-14 mb-5" aria-hidden="true">
+          <img src="assets/logo-crown.svg" alt="" class="w-full h-full">
+        </div>
+        <p class="font-display text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[0.08em] uppercase mb-4">
+          Kingswell
+        </p>
+        <div class="brand-divider text-royal mb-4" aria-hidden="true"><span></span></div>
+        <p class="text-royal text-sm sm:text-base font-semibold tracking-[0.28em] uppercase mb-5">
+          Homes &amp; Hospitality
+        </p>
+        <h1 class="text-white text-sm sm:text-base font-medium tracking-[0.18em] uppercase mb-4">
+          Comfort. Quality. Memorable Stays.
+        </h1>
+        <p class="text-white/75 text-base md:text-lg max-w-md mb-8 leading-relaxed">
+          Premium short term rentals and serviced accommodations designed for your comfort and convenience.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#book" data-book-mode="short"
+            class="cta-primary inline-flex justify-center items-center bg-royal text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-royal-soft">
+            Book a stay
+          </a>
+          <a href="#book" data-book-mode="serviced"
+            class="cta-primary inline-flex justify-center items-center border border-white/70 text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-white/10">
+            Book serviced accommodation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-5 reveal">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">About</p>
+          <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5 leading-tight">
+            One brand. Two businesses. Endless possibilities.
+          </h2>
+          <p class="text-slate-soft text-lg leading-relaxed mb-5">
+            Kingswell Homes &amp; Hospitality delivers premium short term rentals and serviced
+            accommodations — designed for comfort, quality, and stays worth remembering.
+          </p>
+          <p class="text-slate-soft text-lg leading-relaxed mb-10">
+            Whether you need a flexible short stay or a fully serviced base, we focus on polished spaces
+            and attentive guest experience from arrival to departure.
+          </p>
+          <dl class="grid grid-cols-2 gap-6">
+            <div>
+              <dt class="text-sm text-slate-soft mb-1">Focus</dt>
+              <dd class="font-display text-2xl font-semibold">Premium stays</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-soft mb-1">Offer</dt>
+              <dd class="font-display text-2xl font-semibold">Short &amp; serviced</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-soft mb-1">Standards</dt>
+              <dd class="font-display text-2xl font-semibold">Comfort first</dd>
+            </div>
+            <div>
+              <dt class="text-sm text-slate-soft mb-1">Support</dt>
+              <dd class="font-display text-2xl font-semibold">Guest-led</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80"
+            alt="Bright living room with soft seating and natural light"
+            class="w-full h-[420px] object-cover"
+            loading="lazy">
+          <div class="absolute -bottom-4 -left-4 md:-left-6 bg-royal text-white px-5 py-4 max-w-[240px]">
+            <p class="font-display text-lg font-semibold leading-snug">Comfort. Quality. Memorable stays.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-16 md:py-20 bg-slate-stone border-y border-slate-mist">
+    <div class="max-w-6xl mx-auto px-5 reveal">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Our services</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">Hospitality, thoughtfully delivered</h2>
+        <p class="text-slate-soft text-lg">Four pillars that shape every Kingswell stay.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div class="text-center sm:text-left">
+          <div class="service-icon mb-4 inline-flex">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-10.5z" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-wide uppercase text-sm mb-2">Short Term Stays</h3>
+          <p class="text-slate-soft text-sm leading-relaxed">Flexible premium rentals for weekends, work trips, and getaways.</p>
+        </div>
+        <div class="text-center sm:text-left">
+          <div class="service-icon mb-4 inline-flex">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 18V9.5A1.5 1.5 0 0 1 4.5 8H20a1 1 0 0 1 1 1v9M3 18h18M3 18v2m18-2v2M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-wide uppercase text-sm mb-2">Serviced Accommodation</h3>
+          <p class="text-slate-soft text-sm leading-relaxed">Fully equipped bases with the convenience of hotel-level care.</p>
+        </div>
+        <div class="text-center sm:text-left">
+          <div class="service-icon mb-4 inline-flex">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 11c1.5-2 3-3 4-3s2.5 1 4 3M7 14c.8 1.2 2.2 2 4 2s3.2-.8 4-2M4.5 8.5c1-.8 2.2-1.2 3.5-1M16 7.5c1.3.1 2.5.6 3.5 1.3" />
+              <circle cx="12" cy="12" r="9" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-wide uppercase text-sm mb-2">House Keeping</h3>
+          <p class="text-slate-soft text-sm leading-relaxed">Impeccable standards before you arrive — and throughout your stay.</p>
+        </div>
+        <div class="text-center sm:text-left">
+          <div class="service-icon mb-4 inline-flex">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-6 1.8-6 4v1h12v-1c0-2.2-2.7-4-6-4z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 8h3v3M18 11h2.5" />
+            </svg>
+          </div>
+          <h3 class="font-semibold tracking-wide uppercase text-sm mb-2">Guest Experience</h3>
+          <p class="text-slate-soft text-sm leading-relaxed">From check-in to local tips — support that feels personal and polished.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking paths -->
+  <section id="stays" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-5 reveal">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">How booking works</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">Two clear ways to stay</h2>
+        <p class="text-slate-soft text-lg">Choose what fits your trip. Both paths use a simple booking enquiry.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div class="border-t-2 border-royal pt-8">
+          <h3 class="font-display text-2xl font-semibold mb-3">Short term stays</h3>
+          <p class="text-slate-soft leading-relaxed mb-6">
+            Premium short term rentals for leisure and business — designed for comfort and convenience.
+            Ideal when you want a polished home for a few nights or a longer break.
+          </p>
+          <a href="#book" data-book-mode="short"
+            class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+            Book a short term stay
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="border-t-2 border-slate-soft/40 pt-8">
+          <h3 class="font-display text-2xl font-semibold mb-3">Serviced accommodation</h3>
+          <p class="text-slate-soft leading-relaxed mb-6">
+            Fully equipped serviced spaces with housekeeping and guest support built in —
+            a seamless alternative to hotels for extended or corporate stays.
+          </p>
+          <a href="#book" data-book-mode="serviced"
+            class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+            Book serviced accommodation
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section id="amenities" class="py-20 md:py-24 bg-ink text-white">
+    <div class="max-w-6xl mx-auto px-5 reveal">
+      <div class="max-w-2xl mb-12">
+        <p class="text-royal-soft text-sm font-semibold tracking-widest uppercase mb-3">The Kingswell standard</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold mb-4">What you’ll find with us</h2>
+        <p class="text-white/65 text-lg">Every stay is shaped around comfort, quality, and memorable hospitality.</p>
+      </div>
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Premium interiors</p>
+          <p class="text-white/55 text-sm">Thoughtfully finished spaces designed for rest and ease</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Fast fibre Wi‑Fi</p>
+          <p class="text-white/55 text-sm">Reliable connectivity for work or downtime</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Fully equipped kitchens</p>
+          <p class="text-white/55 text-sm">Cook, dine, and settle in like home</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Professional housekeeping</p>
+          <p class="text-white/55 text-sm">Immaculate presentation before every arrival</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Fresh linens &amp; towels</p>
+          <p class="text-white/55 text-sm">Hotel-quality bedding for every guest</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Self check-in</p>
+          <p class="text-white/55 text-sm">Smooth arrival with details sent before you travel</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Guest support</p>
+          <p class="text-white/55 text-sm">Responsive help throughout your stay</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Flexible booking</p>
+          <p class="text-white/55 text-sm">Short term or serviced — book what you need</p>
+        </li>
+        <li class="border-t border-white/15 pt-5">
+          <p class="font-semibold mb-1">Memorable stays</p>
+          <p class="text-white/55 text-sm">Comfort and quality as the standard, not the exception</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="reveal text-center max-w-2xl mx-auto mb-12">
+        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Gallery</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">A look inside</h2>
+        <p class="text-slate-soft text-lg">Stock images for now — real property photos will replace these.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 reveal">
+        <div class="gallery-item overflow-hidden col-span-2 md:col-span-1 md:row-span-2">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80"
+            alt="Luxury living room" class="w-full h-48 md:h-full min-h-[280px] object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=800&q=80"
+            alt="Kitchen with wooden counters" class="w-full h-48 md:h-56 object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80"
+            alt="Dining area" class="w-full h-48 md:h-56 object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80"
+            alt="Bedroom detail" class="w-full h-48 md:h-56 object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80"
+            alt="Bathroom" class="w-full h-48 md:h-56 object-cover" loading="lazy">
+        </div>
+        <div class="gallery-item overflow-hidden col-span-2">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=80"
+            alt="Living space with sofa" class="w-full h-52 md:h-64 object-cover" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="book" class="py-20 md:py-28 bg-slate-stone border-t border-slate-mist">
+    <div class="max-w-3xl mx-auto px-5 reveal">
+      <div class="text-center mb-10">
+        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Book</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Reserve your stay</h2>
+        <p class="text-slate-soft text-lg">Tell us what you need — we’ll confirm availability and next steps. Demo form for now.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex p-1 bg-slate-mist/70 rounded-lg mb-8" role="tablist" aria-label="Booking type">
+        <button type="button" id="tabShort" role="tab" aria-selected="true" aria-controls="panelShort"
+          class="book-tab flex-1 py-3 px-4 rounded-md text-sm font-semibold text-slate-soft">
+          Short term stay
+        </button>
+        <button type="button" id="tabServiced" role="tab" aria-selected="false" aria-controls="panelServiced"
+          class="book-tab flex-1 py-3 px-4 rounded-md text-sm font-semibold text-slate-soft">
+          Serviced accommodation
+        </button>
+      </div>
+
+      <!-- Short term form -->
+      <div id="panelShort" role="tabpanel" class="bg-white border border-slate-mist p-6 md:p-10 shadow-sm">
+        <form id="shortForm" class="space-y-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="shortName" class="block text-sm font-medium mb-1.5">Full name *</label>
+              <input id="shortName" name="name" required type="text"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+            <div>
+              <label for="shortEmail" class="block text-sm font-medium mb-1.5">Email *</label>
+              <input id="shortEmail" name="email" required type="email"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+          </div>
+          <div>
+            <label for="shortPhone" class="block text-sm font-medium mb-1.5">Phone</label>
+            <input id="shortPhone" name="phone" type="tel" placeholder="+44"
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="shortCheckin" class="block text-sm font-medium mb-1.5">Check-in *</label>
+              <input id="shortCheckin" name="checkin" required type="date"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+            <div>
+              <label for="shortCheckout" class="block text-sm font-medium mb-1.5">Check-out *</label>
+              <input id="shortCheckout" name="checkout" required type="date"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+          </div>
+          <div>
+            <label for="shortGuests" class="block text-sm font-medium mb-1.5">Guests *</label>
+            <select id="shortGuests" name="guests" required
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
+              <option value="">Select</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6+ guests</option>
+            </select>
+          </div>
+          <div>
+            <label for="shortMessage" class="block text-sm font-medium mb-1.5">Message</label>
+            <textarea id="shortMessage" name="message" rows="3" placeholder="Anything we should know?"
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40"></textarea>
+          </div>
+          <button type="submit"
+            class="cta-primary w-full bg-royal text-white py-3.5 rounded-md font-semibold hover:bg-royal-deep">
+            Book short term stay
+          </button>
+        </form>
+        <div id="shortSuccess" class="hidden mt-5 p-4 bg-royal-mist/60 border border-royal/20 rounded-md">
+          <p class="font-semibold text-royal">Booking enquiry noted</p>
+          <p class="text-sm text-slate-soft mt-1">Demo only — we’ll wire this to email once details are ready.</p>
+        </div>
+      </div>
+
+      <!-- Serviced form -->
+      <div id="panelServiced" role="tabpanel" class="hidden bg-white border border-slate-mist p-6 md:p-10 shadow-sm">
+        <form id="servicedForm" class="space-y-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="servicedName" class="block text-sm font-medium mb-1.5">Full name *</label>
+              <input id="servicedName" name="name" required type="text"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+            <div>
+              <label for="servicedEmail" class="block text-sm font-medium mb-1.5">Email *</label>
+              <input id="servicedEmail" name="email" required type="email"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+          </div>
+          <div>
+            <label for="servicedPhone" class="block text-sm font-medium mb-1.5">Phone</label>
+            <input id="servicedPhone" name="phone" type="tel" placeholder="+44"
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+          </div>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="servicedCheckin" class="block text-sm font-medium mb-1.5">Check-in *</label>
+              <input id="servicedCheckin" name="checkin" required type="date"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+            <div>
+              <label for="servicedCheckout" class="block text-sm font-medium mb-1.5">Check-out *</label>
+              <input id="servicedCheckout" name="checkout" required type="date"
+                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
+            </div>
+          </div>
+          <div>
+            <label for="servicedGuests" class="block text-sm font-medium mb-1.5">Guests *</label>
+            <select id="servicedGuests" name="guests" required
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
+              <option value="">Select</option>
+              <option value="1">1 guest</option>
+              <option value="2">2 guests</option>
+              <option value="3">3 guests</option>
+              <option value="4">4 guests</option>
+              <option value="5">5 guests</option>
+              <option value="6">6+ guests</option>
+            </select>
+          </div>
+          <div>
+            <label for="servicedMessage" class="block text-sm font-medium mb-1.5">Message</label>
+            <textarea id="servicedMessage" name="message" rows="3" placeholder="Length of stay, housekeeping needs, etc."
+              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40"></textarea>
+          </div>
+          <button type="submit"
+            class="cta-primary w-full bg-royal text-white py-3.5 rounded-md font-semibold hover:bg-royal-deep">
+            Book serviced accommodation
+          </button>
+        </form>
+        <div id="servicedSuccess" class="hidden mt-5 p-4 bg-royal-mist/60 border border-royal/20 rounded-md">
+          <p class="font-semibold text-royal">Booking enquiry noted</p>
+          <p class="text-sm text-slate-soft mt-1">Demo only — we’ll wire this to email once details are ready.</p>
+        </div>
+      </div>
+
+      <div class="mt-10 grid sm:grid-cols-2 gap-4 text-center sm:text-left">
+        <a href="#"
+          class="border border-slate-mist bg-white px-5 py-4 text-sm font-medium hover:border-royal/40 transition-colors">
+          Also on Airbnb <span class="text-slate-soft">(link soon)</span>
+        </a>
+        <a href="#"
+          class="border border-slate-mist bg-white px-5 py-4 text-sm font-medium hover:border-royal/40 transition-colors">
+          Also on Booking.com <span class="text-slate-soft">(link soon)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-white/80 py-14">
+    <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-royal w-10 h-10 shrink-0" aria-hidden="true">
+            <img src="assets/logo-crown.svg" alt="" class="w-full h-full">
+          </span>
+          <div>
+            <p class="font-display text-xl font-semibold text-white tracking-[0.1em] uppercase">Kingswell</p>
+            <p class="text-[10px] font-medium tracking-[0.22em] uppercase text-royal">Homes &amp; Hospitality</p>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed text-white/55">
+          Premium short term rentals and serviced accommodations designed for your comfort and convenience.
+        </p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Contact</p>
+        <ul class="space-y-2 text-sm text-white/55">
+          <li>United Kingdom</li>
+          <li>+44 (0)0000 000000</li>
+          <li>hello@kingswell.example</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Explore</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#about" class="text-white/55 hover:text-white transition-colors">About</a></li>
+          <li><a href="#services" class="text-white/55 hover:text-white transition-colors">Services</a></li>
+          <li><a href="#book" class="text-white/55 hover:text-white transition-colors">Book</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 mt-12 pt-8 border-t border-white/10 text-xs text-white/40">
+      <p>&copy; <span id="year"></span> Kingswell Homes &amp; Hospitality. Placeholder site for demonstration.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const tabShort = document.getElementById('tabShort');
+    const tabServiced = document.getElementById('tabServiced');
+    const panelShort = document.getElementById('panelShort');
+    const panelServiced = document.getElementById('panelServiced');
+
+    function setBookMode(mode) {
+      const isServiced = mode === 'serviced';
+      tabShort.setAttribute('aria-selected', String(!isServiced));
+      tabServiced.setAttribute('aria-selected', String(isServiced));
+      panelShort.classList.toggle('hidden', isServiced);
+      panelServiced.classList.toggle('hidden', !isServiced);
+    }
+
+    tabShort.addEventListener('click', () => setBookMode('short'));
+    tabServiced.addEventListener('click', () => setBookMode('serviced'));
+
+    document.querySelectorAll('[data-book-mode]').forEach(el => {
+      el.addEventListener('click', () => {
+        setBookMode(el.dataset.bookMode);
+      });
+    });
+
+    const today = new Date().toISOString().split('T')[0];
+    ['shortCheckin', 'shortCheckout', 'servicedCheckin', 'servicedCheckout'].forEach(id => {
+      document.getElementById(id).min = today;
+    });
+
+    function wireDatePair(checkinId, checkoutId) {
+      const checkin = document.getElementById(checkinId);
+      const checkout = document.getElementById(checkoutId);
+      checkin.addEventListener('change', () => {
+        checkout.min = checkin.value || today;
+        if (checkout.value && checkout.value <= checkin.value) checkout.value = '';
+      });
+    }
+    wireDatePair('shortCheckin', 'shortCheckout');
+    wireDatePair('servicedCheckin', 'servicedCheckout');
+
+    function handleForm(form, successId) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        const checkin = form.querySelector('[name="checkin"]').value;
+        const checkout = form.querySelector('[name="checkout"]').value;
+        if (checkout <= checkin) {
+          alert('Check-out must be after check-in.');
+          return;
+        }
+        console.log('Booking enquiry:', Object.fromEntries(new FormData(form)));
+        document.getElementById(successId).classList.remove('hidden');
+        form.reset();
+        setTimeout(() => document.getElementById(successId).classList.add('hidden'), 8000);
+      });
+    }
+    handleForm(document.getElementById('shortForm'), 'shortSuccess');
+    handleForm(document.getElementById('servicedForm'), 'servicedSuccess');
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+
+</html>
