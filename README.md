@@ -23,7 +23,7 @@ open index.html
 
 - Single-page HTML
 - Tailwind CSS (CDN)
-- Playfair Display + Montserrat
+- Montserrat
 - Brand palette: royal purple `#7B1FA2`, off-black `#1A1A1A`, white
 - Unsplash placeholder images
 - Vanilla JS (nav, booking tabs, form demo)
