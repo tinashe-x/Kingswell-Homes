@@ -151,14 +151,15 @@
       transform: translateY(0);
     }
 
-    .book-tab {
-      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    #apartmentIframeAll {
+      min-height: 720px;
+      width: 100%;
     }
 
-    .book-tab[aria-selected="true"] {
-      background: white;
-      color: var(--ink);
-      box-shadow: 0 1px 3px rgba(26, 26, 26, 0.08);
+    #apartmentIframeAll iframe {
+      width: 100% !important;
+      min-height: 720px;
+      border: 0;
     }
 
     .cta-primary {
@@ -261,13 +262,13 @@
           Premium short term rentals and serviced accommodations designed for your comfort and convenience.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href="#book" data-book-mode="short"
+          <a href="#book"
             class="cta-primary inline-flex justify-center items-center bg-royal text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-royal-soft">
             Book a stay
           </a>
-          <a href="#book" data-book-mode="serviced"
+          <a href="#book"
             class="cta-primary inline-flex justify-center items-center border border-white/70 text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-white/10">
-            Book serviced accommodation
+            Check availability
           </a>
         </div>
       </div>
@@ -381,7 +382,7 @@
       <div class="text-center max-w-2xl mx-auto mb-12">
         <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">How booking works</p>
         <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">Two clear ways to stay</h2>
-        <p class="text-slate-soft text-lg">Choose what fits your trip. Both paths use a simple booking enquiry.</p>
+        <p class="text-slate-soft text-lg">Choose what fits your trip, then reserve online with live availability and secure payment.</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8 md:gap-12">
         <div class="border-t-2 border-royal pt-8">
@@ -390,7 +391,7 @@
             Premium short term rentals for leisure and business — designed for comfort and convenience.
             Ideal when you want a polished home for a few nights or a longer break.
           </p>
-          <a href="#book" data-book-mode="short"
+          <a href="#book"
             class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
             Book a short term stay
             <span aria-hidden="true">→</span>
@@ -402,7 +403,7 @@
             Fully equipped serviced spaces with housekeeping and guest support built in —
             a seamless alternative to hotels for extended or corporate stays.
           </p>
-          <a href="#book" data-book-mode="serviced"
+          <a href="#book"
             class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
             Book serviced accommodation
             <span aria-hidden="true">→</span>
@@ -498,192 +499,36 @@
     </div>
   </section>
 
-  <!-- Booking -->
+  <!-- Booking (Smoobu) -->
   <section id="book" class="py-20 md:py-28 bg-slate-stone border-t border-slate-mist">
-    <div class="max-w-3xl mx-auto px-5 reveal">
+    <div class="max-w-4xl mx-auto px-5 reveal">
       <div class="text-center mb-10">
         <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Booking</p>
-        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Reserve your stay</h2>
-        <p class="text-slate-soft text-lg">Tell us what you need — we’ll confirm availability and next steps. Demo form for now.</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Reserve Kingswell Home</h2>
+        <p class="text-slate-soft text-lg max-w-2xl mx-auto">
+          Choose your dates, pay securely online, and lock your stay. Confirmed bookings block the calendar automatically.
+        </p>
       </div>
 
-      <!-- Tabs -->
-      <div class="flex p-1 bg-slate-mist/70 rounded-lg mb-8" role="tablist" aria-label="Booking type">
-        <button type="button" id="tabShort" role="tab" aria-selected="true" aria-controls="panelShort"
-          class="book-tab flex-1 py-3 px-4 rounded-md text-sm font-semibold text-slate-soft">
-          Short term stay
-        </button>
-        <button type="button" id="tabServiced" role="tab" aria-selected="false" aria-controls="panelServiced"
-          class="book-tab flex-1 py-3 px-4 rounded-md text-sm font-semibold text-slate-soft">
-          Serviced accommodation
-        </button>
-      </div>
-
-      <!-- Short term form -->
-      <div id="panelShort" role="tabpanel" class="bg-white border border-slate-mist p-6 md:p-10 shadow-sm">
-        <form id="shortForm" class="space-y-5" novalidate>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="shortName" class="block text-sm font-medium mb-1.5">Full name *</label>
-              <input id="shortName" name="name" required type="text"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-            <div>
-              <label for="shortEmail" class="block text-sm font-medium mb-1.5">Email *</label>
-              <input id="shortEmail" name="email" required type="email"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-          </div>
-          <div>
-            <label for="shortPhone" class="block text-sm font-medium mb-1.5">Phone</label>
-            <input id="shortPhone" name="phone" type="tel" placeholder="+44"
-              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="shortCheckin" class="block text-sm font-medium mb-1.5">Check-in *</label>
-              <input id="shortCheckin" name="checkin" required type="date"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-            <div>
-              <label for="shortCheckout" class="block text-sm font-medium mb-1.5">Check-out *</label>
-              <input id="shortCheckout" name="checkout" required type="date"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="shortGuests" class="block text-sm font-medium mb-1.5">Guests *</label>
-              <select id="shortGuests" name="guests" required
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
-                <option value="">Select</option>
-                <option value="1">1 guest</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5">5 guests</option>
-                <option value="6">6+ guests</option>
-              </select>
-            </div>
-            <div>
-              <label for="shortChildren" class="block text-sm font-medium mb-1.5">Children</label>
-              <select id="shortChildren" name="children"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
-                <option value="0">0 children</option>
-                <option value="1">1 child</option>
-                <option value="2">2 children</option>
-                <option value="3">3 children</option>
-                <option value="4">4 children</option>
-                <option value="5">5+ children</option>
-              </select>
-            </div>
-          </div>
-          <label class="flex items-start gap-3 cursor-pointer">
-            <input id="shortBreakfast" name="breakfast" type="checkbox" value="yes"
-              class="mt-1 w-4 h-4 rounded border-slate-mist text-royal focus:ring-royal/40">
-            <span class="text-sm">
-              <span class="font-medium block">Breakfast option</span>
-              <span class="text-slate-soft">Add breakfast for your stay</span>
-            </span>
-          </label>
-          <div>
-            <label for="shortMessage" class="block text-sm font-medium mb-1.5">Message</label>
-            <textarea id="shortMessage" name="message" rows="3" placeholder="Anything we should know?"
-              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40"></textarea>
-          </div>
-          <button type="submit"
-            class="cta-primary w-full bg-royal text-white py-3.5 rounded-md font-semibold hover:bg-royal-deep">
-            Book short term stay
-          </button>
-        </form>
-        <div id="shortSuccess" class="hidden mt-5 p-4 bg-royal-mist/60 border border-royal/20 rounded-md">
-          <p class="font-semibold text-royal">Booking enquiry noted</p>
-          <p class="text-sm text-slate-soft mt-1">Demo only — we’ll wire this to email once details are ready.</p>
+      <div class="bg-white border border-slate-mist p-4 sm:p-6 md:p-8 shadow-sm">
+        <div id="apartmentIframeAll">
+          <script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
+          <script>
+            BookingToolIframe.initialize({
+              url: "https://login.smoobu.com/en/booking-tool/iframe/1842601",
+              baseUrl: "https://login.smoobu.com",
+              target: "#apartmentIframeAll"
+            });
+          </script>
         </div>
       </div>
 
-      <!-- Serviced form -->
-      <div id="panelServiced" role="tabpanel" class="hidden bg-white border border-slate-mist p-6 md:p-10 shadow-sm">
-        <form id="servicedForm" class="space-y-5" novalidate>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="servicedName" class="block text-sm font-medium mb-1.5">Full name *</label>
-              <input id="servicedName" name="name" required type="text"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-            <div>
-              <label for="servicedEmail" class="block text-sm font-medium mb-1.5">Email *</label>
-              <input id="servicedEmail" name="email" required type="email"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-          </div>
-          <div>
-            <label for="servicedPhone" class="block text-sm font-medium mb-1.5">Phone</label>
-            <input id="servicedPhone" name="phone" type="tel" placeholder="+44"
-              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="servicedCheckin" class="block text-sm font-medium mb-1.5">Check-in *</label>
-              <input id="servicedCheckin" name="checkin" required type="date"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-            <div>
-              <label for="servicedCheckout" class="block text-sm font-medium mb-1.5">Check-out *</label>
-              <input id="servicedCheckout" name="checkout" required type="date"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-5">
-            <div>
-              <label for="servicedGuests" class="block text-sm font-medium mb-1.5">Guests *</label>
-              <select id="servicedGuests" name="guests" required
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
-                <option value="">Select</option>
-                <option value="1">1 guest</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5">5 guests</option>
-                <option value="6">6+ guests</option>
-              </select>
-            </div>
-            <div>
-              <label for="servicedChildren" class="block text-sm font-medium mb-1.5">Children</label>
-              <select id="servicedChildren" name="children"
-                class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40 bg-white">
-                <option value="0">0 children</option>
-                <option value="1">1 child</option>
-                <option value="2">2 children</option>
-                <option value="3">3 children</option>
-                <option value="4">4 children</option>
-                <option value="5">5+ children</option>
-              </select>
-            </div>
-          </div>
-          <label class="flex items-start gap-3 cursor-pointer">
-            <input id="servicedBreakfast" name="breakfast" type="checkbox" value="yes"
-              class="mt-1 w-4 h-4 rounded border-slate-mist text-royal focus:ring-royal/40">
-            <span class="text-sm">
-              <span class="font-medium block">Breakfast option</span>
-              <span class="text-slate-soft">Add breakfast for your stay</span>
-            </span>
-          </label>
-          <div>
-            <label for="servicedMessage" class="block text-sm font-medium mb-1.5">Message</label>
-            <textarea id="servicedMessage" name="message" rows="3" placeholder="Length of stay, housekeeping needs, etc."
-              class="w-full border border-slate-mist px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-royal/40"></textarea>
-          </div>
-          <button type="submit"
-            class="cta-primary w-full bg-royal text-white py-3.5 rounded-md font-semibold hover:bg-royal-deep">
-            Book serviced accommodation
-          </button>
-        </form>
-        <div id="servicedSuccess" class="hidden mt-5 p-4 bg-royal-mist/60 border border-royal/20 rounded-md">
-          <p class="font-semibold text-royal">Booking enquiry noted</p>
-          <p class="text-sm text-slate-soft mt-1">Demo only — we’ll wire this to email once details are ready.</p>
-        </div>
-      </div>
+      <p class="mt-6 text-center text-sm text-slate-soft">
+        Payments are processed securely via Stripe through Smoobu. Need help?
+        <a href="mailto:enquiries@kingswellhomes.co.uk" class="text-royal font-medium hover:text-royal-deep">Email us</a>
+        or call
+        <a href="tel:+447864132042" class="text-royal font-medium hover:text-royal-deep">+44 7864 132042</a>.
+      </p>
 
       <div class="mt-10 grid sm:grid-cols-2 gap-4 text-center sm:text-left">
         <a href="#"
@@ -739,11 +584,11 @@
         </ul>
       </div>
       <div>
-        <p class="text-white font-semibold mb-3">Explore</p>
+        <p class="text-white font-semibold mb-3">Policies</p>
         <ul class="space-y-2 text-sm">
-          <li><a href="#about" class="text-white/55 hover:text-white transition-colors">About</a></li>
-          <li><a href="#services" class="text-white/55 hover:text-white transition-colors">Services</a></li>
-          <li><a href="#book" class="text-white/55 hover:text-white transition-colors">Booking</a></li>
+          <li><a href="policies.html#house-rules" class="text-white/55 hover:text-white transition-colors">House Rules</a></li>
+          <li><a href="policies.html#cancellation" class="text-white/55 hover:text-white transition-colors">Cancellation</a></li>
+          <li><a href="policies.html#damage" class="text-white/55 hover:text-white transition-colors">Damage Policy</a></li>
         </ul>
       </div>
     </div>
@@ -803,66 +648,6 @@
         menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
-
-    const tabShort = document.getElementById('tabShort');
-    const tabServiced = document.getElementById('tabServiced');
-    const panelShort = document.getElementById('panelShort');
-    const panelServiced = document.getElementById('panelServiced');
-
-    function setBookMode(mode) {
-      const isServiced = mode === 'serviced';
-      tabShort.setAttribute('aria-selected', String(!isServiced));
-      tabServiced.setAttribute('aria-selected', String(isServiced));
-      panelShort.classList.toggle('hidden', isServiced);
-      panelServiced.classList.toggle('hidden', !isServiced);
-    }
-
-    tabShort.addEventListener('click', () => setBookMode('short'));
-    tabServiced.addEventListener('click', () => setBookMode('serviced'));
-
-    document.querySelectorAll('[data-book-mode]').forEach(el => {
-      el.addEventListener('click', () => {
-        setBookMode(el.dataset.bookMode);
-      });
-    });
-
-    const today = new Date().toISOString().split('T')[0];
-    ['shortCheckin', 'shortCheckout', 'servicedCheckin', 'servicedCheckout'].forEach(id => {
-      document.getElementById(id).min = today;
-    });
-
-    function wireDatePair(checkinId, checkoutId) {
-      const checkin = document.getElementById(checkinId);
-      const checkout = document.getElementById(checkoutId);
-      checkin.addEventListener('change', () => {
-        checkout.min = checkin.value || today;
-        if (checkout.value && checkout.value <= checkin.value) checkout.value = '';
-      });
-    }
-    wireDatePair('shortCheckin', 'shortCheckout');
-    wireDatePair('servicedCheckin', 'servicedCheckout');
-
-    function handleForm(form, successId) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-        const checkin = form.querySelector('[name="checkin"]').value;
-        const checkout = form.querySelector('[name="checkout"]').value;
-        if (checkout <= checkin) {
-          alert('Check-out must be after check-in.');
-          return;
-        }
-        console.log('Booking enquiry:', Object.fromEntries(new FormData(form)));
-        document.getElementById(successId).classList.remove('hidden');
-        form.reset();
-        setTimeout(() => document.getElementById(successId).classList.add('hidden'), 8000);
-      });
-    }
-    handleForm(document.getElementById('shortForm'), 'shortSuccess');
-    handleForm(document.getElementById('servicedForm'), 'servicedSuccess');
 
     const reveals = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {

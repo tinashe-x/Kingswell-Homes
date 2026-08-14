@@ -26,16 +26,18 @@ open index.html
 - Montserrat
 - Brand palette: royal purple `#7B1FA2`, off-black `#1A1A1A`, white
 - Unsplash placeholder images
-- Vanilla JS (nav, booking tabs, form demo)
+- Vanilla JS (nav, reveal animations)
+- Smoobu booking engine embed (calendar, checkout, payments via Stripe)
+
+## Booking
+
+Live availability and payments are powered by **Smoobu** (property: Kingswell Home). Connect **Stripe** in the Smoobu Marketplace so guests can pay on-site. Channel sync (Airbnb / Booking.com) is configured inside Smoobu when listings are ready.
 
 ## Replace later
 
-- Contact phone, email, location
-- Real property photos
-- Official crown logo artwork
-- Airbnb / Booking.com links
-- Wire booking forms to email or a booking tool
+- Real property photos (where placeholders remain)
+- Airbnb / Booking.com listing links on the site
 
 ---
 
-Demo only — contact details are placeholders.
+Contact details are live; booking is handled through Smoobu.

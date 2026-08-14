@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Policies | Kingswell Homes &amp; Hospitality</title>
+  <meta name="description"
+    content="House rules, cancellation, and damage policies for Kingswell Homes &amp; Hospitality stays.">
+  <meta property="og:title" content="Guest Policies | Kingswell Homes & Hospitality">
+  <meta property="og:description"
+    content="House rules, cancellation, and damage policies for Kingswell stays.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/crown-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/crown-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#1A1A1A',
+            royal: {
+              DEFAULT: '#7B1FA2',
+              deep: '#5E1780',
+              soft: '#9C4BC4',
+              mist: '#F3E8F8',
+              wash: '#FAF5FC'
+            },
+            slate: {
+              soft: '#6B6570',
+              mist: '#E8E4EC',
+              stone: '#F5F2F7'
+            }
+          },
+          fontFamily: {
+            display: ['Montserrat', 'system-ui', 'sans-serif'],
+            sans: ['Montserrat', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --ink: #1A1A1A;
+      --royal: #7B1FA2;
+      --mist: #E8E4EC;
+      --wash: #FAF5FC;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse 120% 80% at 10% -20%, rgba(123, 31, 162, 0.07), transparent 50%),
+        radial-gradient(ellipse 90% 60% at 100% 0%, rgba(123, 31, 162, 0.05), transparent 45%),
+        var(--wash);
+    }
+
+    .float-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 9999px;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .float-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .float-action:focus-visible {
+      outline: 2px solid var(--royal);
+      outline-offset: 3px;
+    }
+
+    .policy-section {
+      scroll-margin-top: 6rem;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-ink antialiased">
+  <header class="fixed top-0 inset-x-0 z-50 bg-royal-wash/90 backdrop-blur-md border-b border-slate-mist/80">
+    <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-ink">
+        <span class="text-royal w-12 h-12 shrink-0" aria-hidden="true">
+          <img src="assets/crown-logo.png" alt="" class="w-full h-full rounded-full object-cover">
+        </span>
+        <span class="leading-tight">
+          <span class="font-display text-lg md:text-xl font-semibold tracking-[0.12em] uppercase block">Kingswell</span>
+          <span class="text-[10px] md:text-xs font-medium tracking-[0.22em] uppercase text-royal block">Homes &amp; Hospitality</span>
+        </span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-soft">
+        <a href="index.html#about" class="hover:text-royal transition-colors">About</a>
+        <a href="index.html#services" class="hover:text-royal transition-colors">Services</a>
+        <a href="index.html#stays" class="hover:text-royal transition-colors">Stays</a>
+        <a href="index.html#book"
+          class="bg-royal text-white px-4 py-2 rounded-md hover:bg-royal-deep transition-colors">Booking</a>
+      </div>
+      <button id="menuBtn" type="button" class="md:hidden p-2 text-ink" aria-label="Open menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-mist bg-royal-wash px-5 py-4 space-y-3">
+      <a href="index.html#about" class="block text-slate-soft font-medium">About</a>
+      <a href="index.html#services" class="block text-slate-soft font-medium">Services</a>
+      <a href="index.html#stays" class="block text-slate-soft font-medium">Stays</a>
+      <a href="index.html#book" class="block font-medium text-royal">Booking</a>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-20 md:pt-32 md:pb-28">
+    <div class="max-w-3xl mx-auto px-5">
+      <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Guest information</p>
+      <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4 leading-tight">
+        Policies
+      </h1>
+      <p class="text-slate-soft text-lg leading-relaxed mb-10">
+        Clear expectations help every stay run smoothly. By booking with Kingswell Homes &amp; Hospitality,
+        you agree to the policies below. Channel bookings (for example Airbnb) may also be subject to
+        that platform’s terms.
+      </p>
+
+      <nav aria-label="Policy sections" class="mb-14 flex flex-col sm:flex-row sm:flex-wrap gap-3 text-sm font-medium">
+        <a href="#house-rules" class="text-royal hover:text-royal-deep transition-colors">House Rules</a>
+        <span class="hidden sm:inline text-slate-mist" aria-hidden="true">·</span>
+        <a href="#cancellation" class="text-royal hover:text-royal-deep transition-colors">Cancellation</a>
+        <span class="hidden sm:inline text-slate-mist" aria-hidden="true">·</span>
+        <a href="#damage" class="text-royal hover:text-royal-deep transition-colors">Damage Policy</a>
+      </nav>
+
+      <!-- House Rules -->
+      <section id="house-rules" class="policy-section mb-16 md:mb-20">
+        <h2 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-4">House Rules</h2>
+        <p class="text-slate-soft leading-relaxed mb-6">
+          These rules protect the home, neighbours, and future guests. Serious breaches may result in
+          immediate termination of the stay without refund, plus charges for cleaning, remediation, and damage.
+        </p>
+
+        <h3 class="font-semibold text-ink mt-8 mb-2">No smoking or vaping</h3>
+        <p class="text-slate-soft leading-relaxed mb-4">
+          Kingswell properties are fully smoke-free. Smoking, vaping, and e-cigarettes are not permitted
+          anywhere on the premises — indoors or outdoors — including tobacco, nicotine, cannabis, and similar products.
+          Evidence of smoking (odour, residue, burns, or ash) incurs a deep-clean and remediation fee of
+          <strong class="text-ink font-semibold">£250</strong>, plus any additional costs to restore the property
+          and any lost nights if the home cannot be re-let.
+        </p>
+
+        <h3 class="font-semibold text-ink mt-8 mb-2">No parties or events</h3>
+        <p class="text-slate-soft leading-relaxed mb-4">
+          Parties, events, open-invite gatherings, and commercial filming or photography without prior written
+          approval are prohibited. Occupancy must not exceed the number of guests on the booking confirmation.
+          Unregistered overnight visitors are not allowed. A breach may end the stay immediately with no refund
+          for unused nights, and the guest remains responsible for any related damage, excessive cleaning, and
+          neighbour or local-authority complaints.
+        </p>
+
+        <h3 class="font-semibold text-ink mt-8 mb-2">No illegal drugs or illegal activity</h3>
+        <p class="text-slate-soft leading-relaxed mb-4">
+          Illegal drugs and any illegal activity on the premises are strictly forbidden. Discovery may result in
+          immediate eviction without refund and referral to the relevant authorities where required.
+        </p>
+
+        <h3 class="font-semibold text-ink mt-8 mb-2">Quiet hours &amp; respect for neighbours</h3>
+        <p class="text-slate-soft leading-relaxed mb-4">
+          Quiet hours are <strong class="text-ink font-semibold">10:00 pm – 8:00 am</strong>. Please keep noise
+          at a considerate level at all times so neighbours and other guests are not disturbed.
+        </p>
+
+        <h3 class="font-semibold text-ink mt-8 mb-2">Care of the property</h3>
+        <p class="text-slate-soft leading-relaxed">
+          Treat the home with care. Report accidental damage or maintenance issues promptly. Leave the property
+          in a reasonable condition at checkout (rubbish bagged, dishes cleared, keys returned as instructed).
+          Excessive mess beyond normal use may incur additional cleaning charges.
+        </p>
+      </section>
+
+      <!-- Cancellation -->
+      <section id="cancellation" class="policy-section mb-16 md:mb-20">
+        <h2 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-4">Cancellation Policy</h2>
+        <p class="text-slate-soft leading-relaxed mb-6">
+          Our standard cancellation terms follow a <strong class="text-ink font-semibold">Moderate</strong>
+          policy, aligned with common short-term rental practice (including Airbnb’s Moderate tier).
+        </p>
+
+        <ul class="space-y-4 text-slate-soft leading-relaxed list-none">
+          <li>
+            <strong class="text-ink font-semibold">Full refund:</strong>
+            Cancel at least <strong class="text-ink font-semibold">5 days</strong> before check-in to receive
+            a full refund of the accommodation total (excluding non-refundable fees where stated at booking).
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">After that window:</strong>
+            If you cancel less than 5 days before check-in, you are charged for the first night plus
+            50% of the remaining nights (or as otherwise shown on your booking confirmation / channel).
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">During the stay:</strong>
+            Early departure does not automatically entitle you to a refund for unused nights unless required
+            by the booking channel or agreed in writing by Kingswell.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">Platform bookings:</strong>
+            Reservations made via Airbnb, Booking.com, or another channel follow that platform’s cancellation
+            display for your reservation. Where platform terms and this page differ, the confirmed booking
+            terms on the channel apply for that reservation.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">Host / property cancellations:</strong>
+            If we must cancel for reasons outside your control, you will receive a full refund of amounts paid
+            for the cancelled nights, or an alternative stay if mutually agreed.
+          </li>
+        </ul>
+
+        <p class="text-slate-soft leading-relaxed mt-6 text-sm">
+          Direct bookings via our website (Smoobu) use the refund rules shown at checkout. Contact
+          <a href="mailto:enquiries@kingswellhomes.co.uk" class="text-royal hover:text-royal-deep underline underline-offset-2">enquiries@kingswellhomes.co.uk</a>
+          if you need to change or cancel a stay.
+        </p>
+      </section>
+
+      <!-- Damage -->
+      <section id="damage" class="policy-section mb-10">
+        <h2 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-4">Damage Policy</h2>
+        <p class="text-slate-soft leading-relaxed mb-6">
+          We do not require an upfront security deposit. Guests remain fully responsible for loss or damage
+          caused during the stay (including by invitees or unregistered visitors).
+        </p>
+
+        <ul class="space-y-4 text-slate-soft leading-relaxed list-none">
+          <li>
+            <strong class="text-ink font-semibold">What you are liable for:</strong>
+            Breakage, stains, missing items, smoke or odour remediation, locks/keys, furniture and soft
+            furnishings, appliances, and any other property or contents damaged beyond normal wear and tear.
+            Extra cleaning required because of guest conduct is also chargeable.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">How charges work:</strong>
+            We document issues with photos and/or invoices (repair, replacement, or professional cleaning).
+            You will be asked to cover reasonable costs. For Airbnb stays, claims may be pursued through
+            Airbnb’s Resolution Center / Host damage protection (AirCover) where applicable. For direct
+            bookings, we invoice the payment method on file or request payment by the means used at booking.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">Reporting:</strong>
+            Please tell us promptly if something breaks or is already damaged on arrival — that helps us
+            distinguish pre-existing issues from stay-related damage.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">Normal wear and tear:</strong>
+            Ordinary use is expected. We do not charge for fair wear and tear. Consumables provided for the
+            stay (toiletries, coffee, etc.) used reasonably are not charged as damage.
+          </li>
+          <li>
+            <strong class="text-ink font-semibold">Rule violations:</strong>
+            Smoking, parties, excess occupancy, or illegal activity may trigger the fees and termination
+            described under House Rules, in addition to any damage costs.
+          </li>
+        </ul>
+
+        <p class="text-slate-soft leading-relaxed mt-6 text-sm">
+          Questions about these policies:
+          <a href="mailto:enquiries@kingswellhomes.co.uk" class="text-royal hover:text-royal-deep underline underline-offset-2">enquiries@kingswellhomes.co.uk</a>
+          or
+          <a href="tel:+447864132042" class="text-royal hover:text-royal-deep underline underline-offset-2">+44 7864 132042</a>.
+        </p>
+      </section>
+
+      <p class="text-xs text-slate-soft/80 leading-relaxed border-t border-slate-mist pt-8">
+        Last updated: August 2026. Kingswell Homes &amp; Hospitality may update these policies; the version
+        published on this page at the time of booking applies, together with your booking confirmation.
+      </p>
+    </div>
+  </main>
+
+  <footer class="bg-ink text-white/80 py-14">
+    <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-royal w-10 h-10 shrink-0" aria-hidden="true">
+            <img src="assets/crown-logo.png" alt="" class="w-full h-full rounded-full object-cover">
+          </span>
+          <div>
+            <p class="font-display text-xl font-semibold text-white tracking-[0.1em] uppercase">Kingswell</p>
+            <p class="text-[10px] font-medium tracking-[0.22em] uppercase text-royal">Homes &amp; Hospitality</p>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed text-white/55">
+          Premium short term rentals and serviced accommodations designed for your comfort and convenience.
+        </p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Contact</p>
+        <ul class="space-y-2 text-sm text-white/55">
+          <li>United Kingdom</li>
+          <li>
+            <a href="tel:+447864132042" class="hover:text-white transition-colors">+44 7864 132042</a>
+          </li>
+          <li>
+            <a href="mailto:enquiries@kingswellhomes.co.uk" class="hover:text-white transition-colors">enquiries@kingswellhomes.co.uk</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Policies</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#house-rules" class="text-white/55 hover:text-white transition-colors">House Rules</a></li>
+          <li><a href="#cancellation" class="text-white/55 hover:text-white transition-colors">Cancellation</a></li>
+          <li><a href="#damage" class="text-white/55 hover:text-white transition-colors">Damage Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 mt-12 pt-8 border-t border-white/10 text-xs text-white/40 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <p>&copy; <span id="year"></span> Kingswell Homes &amp; Hospitality.</p>
+      <p>
+        Managed by
+        <a href="https://ncfss.co.uk" target="_blank" rel="noopener noreferrer"
+          class="text-white/55 hover:text-royal-soft transition-colors underline underline-offset-2 decoration-white/20 hover:decoration-royal-soft">
+          NCFSS
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-5 right-5 z-50 flex flex-col items-center gap-3" role="navigation" aria-label="Quick contact">
+    <a href="tel:+447864132042"
+      class="float-action bg-royal text-white hover:bg-royal-deep shadow-lg"
+      aria-label="Call Kingswell">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.4 21 3 13.6 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/447864132042"
+      target="_blank" rel="noopener noreferrer"
+      class="float-action bg-[#25D366] text-white hover:bg-[#1ebe57] shadow-lg"
+      aria-label="Message Kingswell on WhatsApp">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>
