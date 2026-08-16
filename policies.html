@@ -11,12 +11,12 @@
   <meta property="og:description"
     content="House rules, cancellation, and damage policies for Kingswell stays.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="assets/crown-logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/crown-logo.png">
+  <link rel="icon" href="assets/new-logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/new-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -40,6 +40,7 @@
           },
           fontFamily: {
             display: ['Montserrat', 'system-ui', 'sans-serif'],
+            brand: ['"Playfair Display"', 'Georgia', 'serif'],
             sans: ['Montserrat', 'system-ui', 'sans-serif']
           }
         }
@@ -94,18 +95,18 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-royal-wash/90 backdrop-blur-md border-b border-slate-mist/80">
     <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 text-ink">
-        <span class="text-royal w-12 h-12 shrink-0" aria-hidden="true">
-          <img src="assets/crown-logo.png" alt="" class="w-full h-full rounded-full object-cover">
+        <span class="text-royal w-16 h-16 shrink-0" aria-hidden="true">
+          <img src="assets/new-logo.png" alt="" class="w-full h-full rounded-full object-cover">
         </span>
         <span class="leading-tight">
-          <span class="font-display text-lg md:text-xl font-semibold tracking-[0.12em] uppercase block">Kingswell</span>
+          <span class="font-brand text-xl md:text-2xl font-medium tracking-[0.14em] uppercase block">Kingswell</span>
           <span class="text-[10px] md:text-xs font-medium tracking-[0.22em] uppercase text-royal block">Homes &amp; Hospitality</span>
         </span>
       </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-soft">
+        <a href="index.html" class="hover:text-royal transition-colors">Home</a>
         <a href="index.html#about" class="hover:text-royal transition-colors">About</a>
-        <a href="index.html#services" class="hover:text-royal transition-colors">Services</a>
-        <a href="index.html#stays" class="hover:text-royal transition-colors">Stays</a>
+        <a href="index.html#accommodation" class="hover:text-royal transition-colors">Accommodation</a>
         <a href="index.html#book"
           class="bg-royal text-white px-4 py-2 rounded-md hover:bg-royal-deep transition-colors">Booking</a>
       </div>
@@ -116,9 +117,9 @@
       </button>
     </nav>
     <div id="mobileMenu" class="hidden md:hidden border-t border-slate-mist bg-royal-wash px-5 py-4 space-y-3">
+      <a href="index.html" class="block text-slate-soft font-medium">Home</a>
       <a href="index.html#about" class="block text-slate-soft font-medium">About</a>
-      <a href="index.html#services" class="block text-slate-soft font-medium">Services</a>
-      <a href="index.html#stays" class="block text-slate-soft font-medium">Stays</a>
+      <a href="index.html#accommodation" class="block text-slate-soft font-medium">Accommodation</a>
       <a href="index.html#book" class="block font-medium text-royal">Booking</a>
     </div>
   </header>
@@ -291,22 +292,23 @@
     <div class="max-w-6xl mx-auto px-5 grid md:grid-cols-3 gap-10">
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <span class="text-royal w-10 h-10 shrink-0" aria-hidden="true">
-            <img src="assets/crown-logo.png" alt="" class="w-full h-full rounded-full object-cover">
+          <span class="text-royal w-14 h-14 shrink-0" aria-hidden="true">
+            <img src="assets/new-logo.png" alt="" class="w-full h-full rounded-full object-cover">
           </span>
           <div>
-            <p class="font-display text-xl font-semibold text-white tracking-[0.1em] uppercase">Kingswell</p>
+            <p class="font-brand text-2xl font-medium text-white tracking-[0.14em] uppercase">Kingswell</p>
             <p class="text-[10px] font-medium tracking-[0.22em] uppercase text-royal">Homes &amp; Hospitality</p>
           </div>
         </div>
         <p class="text-sm leading-relaxed text-white/55">
-          Premium short term rentals and serviced accommodations designed for your comfort and convenience.
+          Comfortable, well-equipped self-catering accommodation in Darlington, County Durham.
+          A home away from home.
         </p>
       </div>
       <div>
         <p class="text-white font-semibold mb-3">Contact</p>
         <ul class="space-y-2 text-sm text-white/55">
-          <li>United Kingdom</li>
+          <li>Darlington, County Durham</li>
           <li>
             <a href="tel:+447864132042" class="hover:text-white transition-colors">+44 7864 132042</a>
           </li>
