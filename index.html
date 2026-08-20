@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lato:wght@400;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -39,9 +39,9 @@
             }
           },
           fontFamily: {
-            display: ['Montserrat', 'system-ui', 'sans-serif'],
-            brand: ['"Playfair Display"', 'Georgia', 'serif'],
-            sans: ['Montserrat', 'system-ui', 'sans-serif']
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
+            brand: ['"DM Serif Display"', 'Georgia', 'serif'],
+            sans: ['Lato', 'system-ui', 'sans-serif']
           }
         }
       }
@@ -64,6 +64,7 @@
     }
 
     body {
+      font-weight: 700;
       background:
         radial-gradient(ellipse 120% 80% at 10% -20%, rgba(123, 31, 162, 0.07), transparent 50%),
         radial-gradient(ellipse 90% 60% at 100% 0%, rgba(123, 31, 162, 0.05), transparent 45%),
@@ -212,19 +213,181 @@
       transform: scale(1.04);
     }
 
+    .gallery-item {
+      cursor: pointer;
+    }
+
+    .gallery-room-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-room-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--mist);
+    }
+
+    .gallery-flat-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--royal);
+      background: rgba(123, 31, 162, 0.08);
+      padding: 0.2rem 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .flat-gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(26, 26, 26, 0.72);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .flat-gallery-modal.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .flat-gallery-panel {
+      background: #fff;
+      width: 100%;
+      max-width: 56rem;
+      max-height: 92vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1rem 1rem 0 0;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+    }
+
+    @media (min-width: 768px) {
+      .flat-gallery-modal {
+        align-items: center;
+        padding: 1.5rem;
+      }
+
+      .flat-gallery-panel {
+        border-radius: 1rem;
+        max-height: 88vh;
+        transform: translateY(24px) scale(0.98);
+      }
+
+      .flat-gallery-modal.is-open .flat-gallery-panel {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .flat-gallery-modal.is-open .flat-gallery-panel {
+      transform: translateY(0);
+    }
+
+    .flat-gallery-scroll {
+      overflow-y: auto;
+      padding: 1.25rem 1.25rem 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .flat-gallery-scroll {
+        padding: 1.5rem 2rem 2rem;
+      }
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      background: rgba(26, 26, 26, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      max-width: min(100%, 72rem);
+      max-height: 88vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .flat-gallery-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background: rgba(123, 31, 162, 0.1);
+      color: var(--royal);
+      transition: background 0.2s ease;
+    }
+
+    .lightbox-close:hover,
+    .flat-gallery-close:hover {
+      background: rgba(123, 31, 162, 0.18);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-bg,
       .reveal,
       .gallery-item img,
-      .cta-primary {
+      .cta-primary,
+      .flat-gallery-modal,
+      .flat-gallery-panel,
+      .lightbox {
         animation: none !important;
         transition: none !important;
         transform: none !important;
       }
 
+      .flat-gallery-modal.is-open .flat-gallery-panel {
+        transform: none;
+      }
+
       .reveal {
         opacity: 1;
       }
+    }
+
+    .gallery-item:focus-visible {
+      outline: 2px solid var(--royal);
+      outline-offset: 2px;
     }
   </style>
 </head>
@@ -318,9 +481,9 @@
     <div class="max-w-6xl lg:max-w-7xl xl:max-w-[90rem] mx-auto px-5 lg:px-8 reveal">
       <div class="grid md:grid-cols-2 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 xl:gap-20 items-start">
         <div>
-          <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">About us</p>
-          <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5 leading-tight">
-            About Kingswell Homes &amp; Hospitality
+          <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">About us</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-5 leading-tight">
+            Kingswell Homes &amp; Hospitality
           </h2>
           <p class="text-slate-soft text-lg leading-relaxed mb-5">
             At Kingswell Homes &amp; Hospitality, we believe that accommodation should feel comfortable,
@@ -336,7 +499,7 @@
             and longer stays. We take pride in providing well-presented accommodation with the essentials
             you need for a comfortable stay.
           </p>
-          <p class="text-sm font-semibold tracking-widest uppercase text-royal mb-4">Our focus is simple</p>
+          <p class="text-base font-bold tracking-widest uppercase text-royal mb-4">Our focus is simple</p>
           <dl class="grid grid-cols-2 gap-6">
             <div>
               <dt class="text-sm text-slate-soft mb-1">Comfort</dt>
@@ -374,8 +537,8 @@
   <section id="accommodation" class="py-16 md:py-20 bg-slate-stone border-y border-slate-mist">
     <div class="max-w-6xl mx-auto px-5 reveal">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Our accommodation</p>
-        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">Everything you need for a comfortable stay</h2>
+        <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">Our accommodation</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Everything you need for a comfortable stay</h2>
         <p class="text-slate-soft text-lg">
           Our self-catering accommodation gives you the freedom to enjoy your stay your way —
           with comfortable bedrooms, smart TVs, fully equipped kitchens, private bathrooms,
@@ -446,8 +609,8 @@
     <div class="max-w-6xl mx-auto px-5 reveal">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 mb-14">
         <div class="lg:col-span-5">
-          <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">One-bedroom accommodation</p>
-          <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">Four apartments in Darlington</h2>
+          <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">One-bedroom accommodation</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">Four apartments in Darlington</h2>
           <p class="text-slate-soft text-lg leading-relaxed mb-6">
             Our separate one-bedroom accommodation is ideal for couples, solo travellers and guests
             looking for a more private and compact stay.
@@ -497,9 +660,15 @@
             Private self-catering stay with a separate kitchen and lounge.
           </p>
           <p class="font-display text-3xl font-semibold">£75 <span class="text-base font-medium text-slate-soft">/ night</span></p>
-          <a href="#book" class="mt-5 inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
-            Book Flat 3 <span aria-hidden="true">→</span>
-          </a>
+          <div class="mt-5 flex flex-col gap-2">
+            <a href="#book" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+              Book Flat 3 <span aria-hidden="true">→</span>
+            </a>
+            <button type="button" data-flat-gallery="3"
+              class="inline-flex items-center gap-2 text-left text-sm text-slate-soft font-semibold hover:text-royal transition-colors">
+              View gallery <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </article>
         <article class="border border-slate-mist border-t-2 border-t-royal bg-white p-6 flex flex-col">
           <p class="text-xs font-semibold tracking-widest uppercase text-royal mb-3">Flat 4</p>
@@ -508,9 +677,15 @@
             Private self-catering stay with a separate kitchen and lounge.
           </p>
           <p class="font-display text-3xl font-semibold">£85 <span class="text-base font-medium text-slate-soft">/ night</span></p>
-          <a href="#book" class="mt-5 inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
-            Book Flat 4 <span aria-hidden="true">→</span>
-          </a>
+          <div class="mt-5 flex flex-col gap-2">
+            <a href="#book" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+              Book Flat 4 <span aria-hidden="true">→</span>
+            </a>
+            <button type="button" data-flat-gallery="4"
+              class="inline-flex items-center gap-2 text-left text-sm text-slate-soft font-semibold hover:text-royal transition-colors">
+              View gallery <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </article>
       </div>
     </div>
@@ -520,7 +695,7 @@
   <section class="py-16 md:py-20 bg-ink text-white">
     <div class="max-w-6xl mx-auto px-5 reveal text-center">
       <p class="text-royal-soft text-sm font-semibold tracking-widest uppercase mb-4">Darlington, County Durham</p>
-      <h2 class="font-display text-3xl md:text-4xl font-semibold mb-4">Your stay. Your space. Your comfort.</h2>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Your stay. Your space. Your comfort.</h2>
       <p class="text-white/65 text-lg max-w-2xl mx-auto mb-8">
         Comfort. Cleanliness. Convenience. Hospitality.
       </p>
@@ -535,28 +710,12 @@
   <section id="gallery" class="py-20 md:py-28">
     <div class="max-w-6xl mx-auto px-5">
       <div class="reveal text-center max-w-2xl mx-auto mb-12">
-        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Gallery</p>
-        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-4">A look inside</h2>
-        <p class="text-slate-soft text-lg">Comfortable spaces, fully equipped kitchens, and everything you need for a memorable stay.</p>
+        <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">Gallery</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-4">A look inside</h2>
+        <p class="text-slate-soft text-lg">Explore our apartments by room — bedrooms, kitchens, bathrooms and living spaces across Flat 3 and Flat 4.</p>
       </div>
-      <div class="grid grid-cols-2 gap-3 md:gap-4 max-w-3xl mx-auto reveal">
-        <div class="gallery-item overflow-hidden">
-          <img src="assets/gallery-bedroom.png"
-            alt="Comfortable bedroom with quality bedding and soft furnishings" class="w-full aspect-[3/4] object-cover" loading="lazy">
-        </div>
-        <div class="gallery-item overflow-hidden">
-          <img src="assets/gallery-kitchen.png"
-            alt="Fully equipped kitchen and dining area" class="w-full aspect-[3/4] object-cover" loading="lazy">
-        </div>
-        <div class="gallery-item overflow-hidden">
-          <img src="assets/gallery-bathroom.png"
-            alt="Clean, modern bathroom with fresh towels" class="w-full aspect-[3/4] object-cover" loading="lazy">
-        </div>
-        <div class="gallery-item overflow-hidden bg-slate-stone">
-          <img src="assets/gallery-flyer.png"
-            alt="Kingswell Homes &amp; Hospitality — premium short and serviced accommodation" class="w-full aspect-[3/4] object-contain" loading="lazy">
-        </div>
-      </div>
+
+      <div id="siteGallery" class="space-y-14 reveal"></div>
     </div>
   </section>
 
@@ -564,8 +723,8 @@
   <section id="book" class="py-20 md:py-28 bg-slate-stone border-t border-slate-mist">
     <div class="max-w-4xl mx-auto px-5 reveal">
       <div class="text-center mb-10">
-        <p class="text-royal text-sm font-semibold tracking-widest uppercase mb-3">Booking</p>
-        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Reserve your stay</h2>
+        <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">Booking</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-3">Reserve your stay</h2>
         <p class="text-slate-soft text-lg max-w-2xl mx-auto">
           Choose your dates, pay securely online, and lock your apartment. Confirmed bookings block the calendar automatically.
         </p>
@@ -693,6 +852,34 @@
     </a>
   </div>
 
+  <!-- Flat gallery modal -->
+  <div id="flatGalleryModal" class="flat-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="flatGalleryTitle" hidden>
+    <div class="flat-gallery-panel">
+      <div class="flex items-start justify-between gap-4 px-5 py-4 md:px-8 md:py-5 border-b border-slate-mist shrink-0">
+        <div>
+          <p class="text-royal text-xs font-bold tracking-widest uppercase mb-1">Apartment gallery</p>
+          <h2 id="flatGalleryTitle" class="font-display text-2xl md:text-3xl font-bold text-ink">Flat 3</h2>
+        </div>
+        <button type="button" id="flatGalleryClose" class="flat-gallery-close shrink-0" aria-label="Close gallery">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div id="flatGalleryContent" class="flat-gallery-scroll"></div>
+    </div>
+  </div>
+
+  <!-- Image lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo" hidden>
+    <button type="button" id="lightboxClose" class="lightbox-close" aria-label="Close image">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <img id="lightboxImage" src="" alt="">
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -725,6 +912,252 @@
     } else {
       reveals.forEach(el => el.classList.add('is-visible'));
     }
+
+    const flatGalleries = {
+      3: {
+        name: 'Flat 3',
+        sections: [
+          {
+            title: 'Living & dining',
+            images: [
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34.jpg', alt: 'Flat 3 living and dining area with round table and seating' },
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 2.jpg', alt: 'Flat 3 dining area with modern seating and artwork' },
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35.jpg', alt: 'Flat 3 open-plan living and dining space' }
+            ]
+          },
+          {
+            title: 'Bedroom',
+            images: [
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 3.jpg', alt: 'Flat 3 bedroom with quality bedding and wardrobe' },
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 4.jpg', alt: 'Flat 3 bedroom with double bed and storage' },
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 5.jpg', alt: 'Flat 3 bedroom with dark grey bedding and curtains' },
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35 2.jpg', alt: 'Flat 3 bedroom with wall-mounted TV' }
+            ]
+          },
+          {
+            title: 'Bathroom',
+            images: [
+              { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35 3.jpg', alt: 'Flat 3 bathroom with bath, shower and heated towel rail' }
+            ]
+          }
+        ]
+      },
+      4: {
+        name: 'Flat 4',
+        sections: [
+          {
+            title: 'Kitchen',
+            images: [
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34.jpg', alt: 'Flat 4 kitchen with white units and dining table' },
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 2.jpg', alt: 'Flat 4 fully equipped kitchen with appliances' },
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 3.jpg', alt: 'Flat 4 kitchen and dining area' }
+            ]
+          },
+          {
+            title: 'Living room',
+            images: [
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 4.jpg', alt: 'Flat 4 living room with corner sofa and fireplace' },
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 5.jpg', alt: 'Flat 4 lounge with comfortable seating' },
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 6.jpg', alt: 'Flat 4 living area with coffee table and shelving' }
+            ]
+          },
+          {
+            title: 'Bedroom',
+            images: [
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 8.jpg', alt: 'Flat 4 bedroom with double bed and fitted wardrobe' }
+            ]
+          },
+          {
+            title: 'Entrance',
+            images: [
+              { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 7.jpg', alt: 'Flat 4 entrance hallway with console table' }
+            ]
+          }
+        ]
+      }
+    };
+
+    const siteGallerySections = [
+      {
+        title: 'Bedroom',
+        images: [
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 3.jpg', alt: 'Flat 3 bedroom with quality bedding', flat: 'Flat 3' },
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34 4.jpg', alt: 'Flat 3 bedroom with wardrobe', flat: 'Flat 3' },
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35 2.jpg', alt: 'Flat 3 bedroom with TV', flat: 'Flat 3' },
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 8.jpg', alt: 'Flat 4 bedroom with fitted wardrobe', flat: 'Flat 4' },
+          { src: 'assets/gallery-bedroom.png', alt: 'Comfortable bedroom with quality bedding', flat: null }
+        ]
+      },
+      {
+        title: 'Bathroom',
+        images: [
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35 3.jpg', alt: 'Flat 3 bathroom with bath and shower', flat: 'Flat 3' },
+          { src: 'assets/gallery-bathroom.png', alt: 'Clean, modern bathroom with fresh towels', flat: null }
+        ]
+      },
+      {
+        title: 'Kitchen',
+        images: [
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34.jpg', alt: 'Flat 4 kitchen with dining area', flat: 'Flat 4' },
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 2.jpg', alt: 'Flat 4 kitchen appliances and worktops', flat: 'Flat 4' },
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 3.jpg', alt: 'Flat 4 kitchen and dining setup', flat: 'Flat 4' },
+          { src: 'assets/gallery-kitchen.png', alt: 'Fully equipped kitchen and dining area', flat: null }
+        ]
+      },
+      {
+        title: 'Living area',
+        images: [
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-34.jpg', alt: 'Flat 3 living and dining area', flat: 'Flat 3' },
+          { src: 'assets/FLAT 3/PHOTO-2026-08-19-19-54-35.jpg', alt: 'Flat 3 open-plan living space', flat: 'Flat 3' },
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 4.jpg', alt: 'Flat 4 living room with sofa', flat: 'Flat 4' },
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 6.jpg', alt: 'Flat 4 lounge with fireplace', flat: 'Flat 4' }
+        ]
+      },
+      {
+        title: 'Entrance',
+        images: [
+          { src: 'assets/FLAT 4/PHOTO-2026-08-19-20-01-34 7.jpg', alt: 'Flat 4 entrance hallway', flat: 'Flat 4' }
+        ]
+      }
+    ];
+
+    function encodeAssetPath(path) {
+      return path.split('/').map(part => encodeURIComponent(part)).join('/');
+    }
+
+    function openLightbox(src, alt) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      lightboxImage.src = encodeAssetPath(src);
+      lightboxImage.alt = alt;
+      lightbox.hidden = false;
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      lightbox.classList.remove('is-open');
+      lightbox.hidden = true;
+      lightboxImage.src = '';
+      if (!document.getElementById('flatGalleryModal').classList.contains('is-open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    function renderGalleryGrid(images, options = {}) {
+      const { showFlatBadge = false } = options;
+      const grid = document.createElement('div');
+      grid.className = 'grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4';
+
+      images.forEach((image) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'gallery-item overflow-hidden text-left bg-white border border-slate-mist';
+        item.innerHTML = `
+          <img src="${encodeAssetPath(image.src)}" alt="${image.alt}" class="w-full aspect-[4/3] object-cover" loading="lazy">
+          ${showFlatBadge && image.flat ? `<span class="gallery-flat-badge px-3 pb-3 block">${image.flat}</span>` : ''}
+        `;
+        item.addEventListener('click', () => openLightbox(image.src, image.alt));
+        grid.appendChild(item);
+      });
+
+      return grid;
+    }
+
+    function renderFlatGallerySections(sections) {
+      const container = document.createDocumentFragment();
+
+      sections.forEach((section) => {
+        const block = document.createElement('section');
+        block.className = 'mb-10 last:mb-0';
+
+        const heading = document.createElement('h3');
+        heading.className = 'gallery-room-title font-display text-xl md:text-2xl font-bold text-ink';
+        heading.textContent = section.title;
+        block.appendChild(heading);
+        block.appendChild(renderGalleryGrid(section.images));
+
+        container.appendChild(block);
+      });
+
+      return container;
+    }
+
+    function openFlatGallery(flatId) {
+      const gallery = flatGalleries[flatId];
+      if (!gallery) return;
+
+      const modal = document.getElementById('flatGalleryModal');
+      const title = document.getElementById('flatGalleryTitle');
+      const content = document.getElementById('flatGalleryContent');
+
+      title.textContent = gallery.name;
+      content.innerHTML = '';
+      content.appendChild(renderFlatGallerySections(gallery.sections));
+
+      modal.hidden = false;
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeFlatGallery() {
+      const modal = document.getElementById('flatGalleryModal');
+      modal.classList.remove('is-open');
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    function renderSiteGallery() {
+      const container = document.getElementById('siteGallery');
+      if (!container) return;
+
+      siteGallerySections.forEach((section) => {
+        const block = document.createElement('section');
+        block.className = 'gallery-room-block';
+
+        const heading = document.createElement('h3');
+        heading.className = 'gallery-room-title font-display text-2xl md:text-3xl font-bold text-ink';
+        heading.textContent = section.title;
+        block.appendChild(heading);
+        block.appendChild(renderGalleryGrid(section.images, { showFlatBadge: true }));
+
+        container.appendChild(block);
+      });
+    }
+
+    renderSiteGallery();
+
+    document.querySelectorAll('[data-flat-gallery]').forEach((button) => {
+      button.addEventListener('click', () => {
+        openFlatGallery(button.dataset.flatGallery);
+      });
+    });
+
+    document.getElementById('flatGalleryClose').addEventListener('click', closeFlatGallery);
+    document.getElementById('flatGalleryModal').addEventListener('click', (event) => {
+      if (event.target.id === 'flatGalleryModal') closeFlatGallery();
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', (event) => {
+      if (event.target.id === 'lightbox') closeLightbox();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      if (document.getElementById('lightbox').classList.contains('is-open')) {
+        closeLightbox();
+        return;
+      }
+      if (document.getElementById('flatGalleryModal').classList.contains('is-open')) {
+        closeFlatGallery();
+      }
+    });
+
+    if (location.hash === '#gallery-flat-3') openFlatGallery('3');
+    if (location.hash === '#gallery-flat-4') openFlatGallery('4');
   </script>
 </body>
 
