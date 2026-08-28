@@ -182,17 +182,6 @@
       transform: translateY(0);
     }
 
-    #apartmentIframeAll {
-      min-height: 720px;
-      width: 100%;
-    }
-
-    #apartmentIframeAll iframe {
-      width: 100% !important;
-      min-height: 720px;
-      border: 0;
-    }
-
     .cta-primary {
       transition: transform 0.25s ease, background 0.25s ease;
     }
@@ -410,7 +399,7 @@
         <a href="#about" class="hover:text-royal transition-colors">About</a>
         <a href="#accommodation" class="hover:text-royal transition-colors">Accommodation</a>
         <a href="#gallery" class="hover:text-royal transition-colors">Gallery</a>
-        <a href="#book"
+        <a href="book.html"
           class="bg-royal text-white px-4 py-2 rounded-md hover:bg-royal-deep transition-colors">Booking</a>
       </div>
       <button id="menuBtn" type="button" class="md:hidden p-2 text-ink" aria-label="Open menu" aria-expanded="false">
@@ -424,7 +413,7 @@
       <a href="#about" class="block text-slate-soft font-medium">About</a>
       <a href="#accommodation" class="block text-slate-soft font-medium">Accommodation</a>
       <a href="#gallery" class="block text-slate-soft font-medium">Gallery</a>
-      <a href="#book" class="block font-medium text-royal">Booking</a>
+      <a href="book.html" class="block font-medium text-royal">Booking</a>
     </div>
   </header>
 
@@ -463,11 +452,11 @@
           Your stay. Your space. Your comfort.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href="#book"
+          <a href="book.html"
             class="cta-primary inline-flex justify-center items-center bg-royal text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-royal-soft">
             Book a stay
           </a>
-          <a href="#book"
+          <a href="book.html"
             class="cta-primary inline-flex justify-center items-center border border-white/70 text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-white/10">
             Check availability
           </a>
@@ -652,7 +641,7 @@
             Private self-catering stay with a separate kitchen and lounge.
           </p>
           <p class="font-display text-3xl font-semibold">£90 <span class="text-base font-medium text-slate-soft">/ night</span></p>
-          <a href="#book" class="mt-5 inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+          <a href="book.html#flat-2" class="mt-5 inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
             Book Flat 2 <span aria-hidden="true">→</span>
           </a>
         </article>
@@ -664,7 +653,7 @@
           </p>
           <p class="font-display text-3xl font-semibold">£105 <span class="text-base font-medium text-slate-soft">/ night</span></p>
           <div class="mt-5 flex flex-col gap-2">
-            <a href="#book" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+            <a href="book.html#flat-3" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
               Book Flat 3 <span aria-hidden="true">→</span>
             </a>
             <button type="button" data-flat-gallery="3"
@@ -681,7 +670,7 @@
           </p>
           <p class="font-display text-3xl font-semibold">£110 <span class="text-base font-medium text-slate-soft">/ night</span></p>
           <div class="mt-5 flex flex-col gap-2">
-            <a href="#book" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
+            <a href="book.html#flat-4" class="inline-flex items-center gap-2 text-royal font-semibold hover:text-royal-deep transition-colors">
               Book Flat 4 <span aria-hidden="true">→</span>
             </a>
             <button type="button" data-flat-gallery="4"
@@ -702,7 +691,7 @@
       <p class="text-white/65 text-lg max-w-2xl mx-auto mb-8">
         Comfort. Cleanliness. Convenience.
       </p>
-      <a href="#book"
+      <a href="book.html"
         class="cta-primary inline-flex justify-center items-center bg-royal text-white px-7 py-3.5 rounded-md font-semibold text-sm tracking-wide hover:bg-royal-soft">
         Book a stay
       </a>
@@ -719,50 +708,6 @@
       </div>
 
       <div id="siteGallery" class="space-y-14 reveal"></div>
-    </div>
-  </section>
-
-  <!-- Booking (Smoobu) -->
-  <section id="book" class="py-20 md:py-28 bg-slate-stone border-t border-slate-mist">
-    <div class="max-w-4xl mx-auto px-5 reveal">
-      <div class="text-center mb-10">
-        <p class="text-royal text-base font-bold tracking-widest uppercase mb-3">Booking</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-3">Reserve your stay</h2>
-        <p class="text-slate-soft text-lg max-w-2xl mx-auto">
-          Choose your dates, pay securely online, and lock your apartment. Confirmed bookings block the calendar automatically.
-        </p>
-      </div>
-
-      <div class="bg-white border border-slate-mist p-4 sm:p-6 md:p-8 shadow-sm">
-        <div id="apartmentIframeAll">
-          <script type="text/javascript" src="https://login.smoobu.com/js/Settings/BookingToolIframe.js"></script>
-          <script>
-            BookingToolIframe.initialize({
-              url: "https://login.smoobu.com/en/booking-tool/iframe/1842601",
-              baseUrl: "https://login.smoobu.com",
-              target: "#apartmentIframeAll"
-            });
-          </script>
-        </div>
-      </div>
-
-      <p class="mt-6 text-center text-sm text-slate-soft">
-        Payments are processed securely via Stripe through Smoobu. Need help?
-        <a href="mailto:enquiries@kingswellhomes.co.uk" class="text-royal font-medium hover:text-royal-deep">Email us</a>
-        or call
-        <a href="tel:+447864132042" class="text-royal font-medium hover:text-royal-deep">+44 7864 132042</a>.
-      </p>
-
-      <div class="mt-10 grid sm:grid-cols-2 gap-4 text-center sm:text-left">
-        <a href="#"
-          class="border border-slate-mist bg-white px-5 py-4 text-sm font-medium hover:border-royal/40 transition-colors">
-          Also on Airbnb <span class="text-slate-soft">(link soon)</span>
-        </a>
-        <a href="#"
-          class="border border-slate-mist bg-white px-5 py-4 text-sm font-medium hover:border-royal/40 transition-colors">
-          Also on Booking.com <span class="text-slate-soft">(link soon)</span>
-        </a>
-      </div>
     </div>
   </section>
 
