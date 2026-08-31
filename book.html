@@ -87,13 +87,15 @@
     }
 
     #apartmentIframeAll {
-      min-height: 720px;
+      height: 300px;
       width: 100%;
+      overflow: hidden;
+      transition: height 0.35s ease;
     }
 
     #apartmentIframeAll iframe {
       width: 100% !important;
-      min-height: 720px;
+      height: 100% !important;
       border: 0;
     }
 
@@ -295,6 +297,8 @@
 
     let activeBookingFlat = null;
     let smoobuScriptPromise = null;
+    const compactBookingHeight = 300;
+    const maxBookingHeight = 2200;
 
     function getFlatFromHash() {
       const hash = location.hash.replace('#', '');
@@ -330,6 +334,45 @@
       });
     }
 
+    function parseBookingHeight(message) {
+      let data = message;
+
+      if (typeof data === 'string') {
+        try {
+          data = JSON.parse(data);
+        } catch {
+          const match = data.match(/(?:height|scrollHeight|iframeHeight)\s*[:=]\s*["']?(\d+)/i);
+          return match ? Number(match[1]) : null;
+        }
+      }
+
+      if (!data || typeof data !== 'object') return null;
+
+      const candidate = data.height
+        ?? data.scrollHeight
+        ?? data.iframeHeight
+        ?? data.contentHeight
+        ?? data.data?.height
+        ?? data.data?.scrollHeight;
+
+      const height = Number(candidate);
+      return Number.isFinite(height) && height > 0 ? height : null;
+    }
+
+    function resizeBookingFrame(event) {
+      if (event.origin !== 'https://login.smoobu.com') return;
+
+      const iframe = document.querySelector('#apartmentIframeAll iframe');
+      if (!iframe || event.source !== iframe.contentWindow) return;
+
+      const height = parseBookingHeight(event.data);
+      if (!height) return;
+
+      const container = document.getElementById('apartmentIframeAll');
+      const nextHeight = Math.min(Math.max(height, compactBookingHeight), maxBookingHeight);
+      container.style.height = `${nextHeight}px`;
+    }
+
     function loadBooking(flatKey, updateHash = true) {
       const key = flatKey in bookingConfigs ? flatKey : '2';
       if (activeBookingFlat === key) return;
@@ -346,6 +389,7 @@
       description.textContent = config.description;
       setActivePicker(key);
       container.innerHTML = '';
+      container.style.height = '';
 
       if (updateHash) {
         const nextHash = config.hash ? `#${config.hash}` : '';
@@ -372,6 +416,8 @@
         loadBooking(button.dataset.flat);
       });
     });
+
+    window.addEventListener('message', resizeBookingFrame);
 
     window.addEventListener('hashchange', () => {
       activeBookingFlat = null;
